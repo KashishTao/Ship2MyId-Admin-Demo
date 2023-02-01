@@ -43,7 +43,7 @@ app.get('/send', (req, res) => {
 
 app.get('/app/allNotifications', async (req, res) => {
 
-    const data = await Notification.find();
+    await Notification.find().then((res) => {console.log(res)}).catch((err)=>{console.log(err)});
     
     res.json(data);
 
