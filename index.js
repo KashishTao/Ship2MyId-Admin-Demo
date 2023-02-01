@@ -43,9 +43,7 @@ app.get('/send', (req, res) => {
 
 app.get('/app/allNotifications', async (req, res) => {
 
-    await Notification.find().then((res) => {console.log(res)}).catch((err)=>{console.log(err)});
-    
-    res.json(data);
+    await Notification.find().then((res) => {res.json(res.data)}).catch((err)=>{res.send(err)});
 
 });
 
